@@ -1,24 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <script>
-(async function () {
-    try {
-        const respuesta = await fetch("https://ipapi.co/json/");
-        const datos = await respuesta.json();
-
-        // Si el visitante es de Colombia
-        if (datos.country_code === "CO") {
-            window.location.replace("https://tuatencionoccidente.com");
-        }
-
-        // Si no es de Colombia, no hace nada y sigue mostrando el index.html.
-    } catch (e) {
-        console.error("No se pudo detectar el país:", e);
-        // Si falla la consulta, permanece en el index.html.
-    }
-})();
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>La Importancia de los Bancos en Colombia</title>
