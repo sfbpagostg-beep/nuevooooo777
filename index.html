@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>La Importancia de los Bancos en Colombia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amarillo: #FCD116;
+      --azul: #003893;
+      --rojo: #CE1126;
+      --oscuro: #0d1b2a;
+      --gris: #f4f5f7;
+      --texto: #1a1a2e;
+      --muted: #6b7280;
+      --blanco: #ffffff;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--gris);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    /* ─── AVISO INFORMATIVO ─── */
+    .aviso-banner {
+      background: #fef3c7;
+      border-bottom: 2px solid #f59e0b;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #78350f;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .aviso-banner strong { font-weight: 600; }
+    .aviso-banner .icono { margin-right: 6px; font-size: 1rem; }
+
+    /* ─── NAV ─── */
+    nav {
+      background: var(--oscuro);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: sticky;
+      top: 42px;
+      z-index: 99;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .bandera {
+      display: flex;
+      width: 32px;
+      height: 22px;
+      border-radius: 3px;
+      overflow: hidden;
+      flex-direction: column;
+    }
+    .bandera span { flex: 1; display: block; }
+    .bandera .f1 { background: var(--amarillo); flex: 2; }
+    .bandera .f2 { background: var(--azul); }
+    .bandera .f3 { background: var(--rojo); }
+    .nav-titulo {
+      color: var(--blanco);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amarillo); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--oscuro) 0%, #1a2e4a 60%, #0f3460 100%);
+      color: var(--blanco);
+      padding: 80px 24px 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(252,209,22,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(0,56,147,0.3) 0%, transparent 50%);
+    }
+    .hero-etiqueta {
+      display: inline-block;
+      background: rgba(252,209,22,0.15);
+      border: 1px solid rgba(252,209,22,0.4);
+      color: var(--amarillo);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--amarillo);
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      max-width: 620px;
+      margin: 0 auto 36px;
+      position: relative;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--amarillo);
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    /* ─── SECCIONES ─── */
+    section { padding: 72px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .seccion-etiqueta {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--azul);
+      margin-bottom: 10px;
+    }
+    .seccion-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--oscuro);
+      margin-bottom: 16px;
+    }
+    .seccion-subtitulo {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+
+    /* ─── IMPORTANCIA: GRID DE TARJETAS ─── */
+    #importancia { background: var(--blanco); }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--gris);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+    .card-icono {
+      width: 48px;
+      height: 48px;
+      background: var(--azul);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--oscuro);
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── HISTORIA ─── */
+    #historia { background: var(--oscuro); color: var(--blanco); }
+    #historia .seccion-titulo { color: var(--blanco); }
+    #historia .seccion-etiqueta { color: var(--amarillo); }
+    #historia .seccion-subtitulo { color: #94a3b8; }
+    .timeline {
+      position: relative;
+      padding-left: 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: rgba(252,209,22,0.2);
+    }
+    .tl-item {
+      position: relative;
+      padding-left: 52px;
+      margin-bottom: 36px;
+    }
+    .tl-punto {
+      position: absolute;
+      left: 10px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--amarillo);
+      border: 3px solid var(--oscuro);
+      box-shadow: 0 0 0 2px var(--amarillo);
+    }
+    .tl-year {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--amarillo);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .tl-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--blanco);
+      margin-bottom: 6px;
+    }
+    .tl-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.65;
+    }
+
+    /* ─── SERVICIOS ─── */
+    #servicios { background: var(--gris); }
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .servicio-item {
+      background: var(--blanco);
+      border-radius: 12px;
+      padding: 24px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s;
+    }
+    .servicio-item:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+    .serv-icono {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eff6ff;
+      border-radius: 8px;
+    }
+    .serv-texto h4 {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--oscuro);
+      margin-bottom: 4px;
+    }
+    .serv-texto p { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─── INCLUSION FINANCIERA ─── */
+    #inclusion { background: var(--blanco); }
+    .inclusion-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .inclusion-imagen {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #dbeafe;
+    }
+    .inclusion-imagen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .indicador {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .ind-barra {
+      height: 8px;
+      background: var(--border);
+      border-radius: 999px;
+      flex: 1;
+      overflow: hidden;
+    }
+    .ind-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--azul);
+    }
+    .ind-label { font-size: 0.85rem; font-weight: 500; min-width: 120px; }
+    .ind-pct { font-size: 0.85rem; font-weight: 700; color: var(--azul); min-width: 38px; text-align: right; }
+
+    /* ─── DATOS CLAVE ─── */
+    #datos { background: var(--azul); color: var(--blanco); }
+    #datos .seccion-etiqueta { color: rgba(252,209,22,0.9); }
+    #datos .seccion-titulo { color: var(--blanco); }
+    #datos .seccion-subtitulo { color: rgba(255,255,255,0.65); }
+    .datos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .dato-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .dato-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--amarillo);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .dato-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+
+    /* ─── RETOS ─── */
+    #retos { background: var(--gris); }
+    .retos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .reto-card {
+      background: var(--blanco);
+      border-left: 4px solid var(--rojo);
+      border-radius: 0 12px 12px 0;
+      padding: 24px 20px;
+    }
+    .reto-card h4 {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--oscuro);
+      margin-bottom: 8px;
+    }
+    .reto-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    /* ─── REGULACION ─── */
+    #regulacion { background: var(--blanco); }
+    .reg-tabla {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px var(--border);
+    }
+    .reg-tabla thead {
+      background: var(--oscuro);
+      color: var(--blanco);
+    }
+    .reg-tabla thead th {
+      padding: 14px 18px;
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .reg-tabla tbody tr:nth-child(even) { background: var(--gris); }
+    .reg-tabla tbody td { padding: 14px 18px; color: var(--texto); border-bottom: 1px solid var(--border); }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 600;
+    }
+    .badge-verde { background: #dcfce7; color: #166534; }
+    .badge-azul { background: #dbeafe; color: #1e40af; }
+    .badge-amarillo { background: #fef9c3; color: #854d0e; }
+
+    /* ─── FAQ ─── */
+    #faq { background: var(--gris); }
+    .faq-item {
+      background: var(--blanco);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-pregunta {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--oscuro);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-flecha {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--gris);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: transform 0.25s;
+    }
+    .faq-item.abierto .faq-flecha { transform: rotate(45deg); }
+    .faq-respuesta {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+    }
+    .faq-respuesta-inner {
+      padding: 0 20px 18px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .faq-item.abierto .faq-respuesta { max-height: 300px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--oscuro);
+      color: #94a3b8;
+      padding: 48px 24px 32px;
+      text-align: center;
+    }
+    footer .bandera { margin: 0 auto 20px; }
+    footer p { font-size: 0.82rem; line-height: 1.7; max-width: 560px; margin: 0 auto; }
+    footer .disclaimer {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.75rem;
+      color: #475569;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { top: 56px; }
+      .aviso-banner { font-size: 0.75rem; padding: 10px 14px; top: 0; position: static; }
+      nav { position: static; }
+      .nav-links { display: none; }
+      section { padding: 52px 20px; }
+      .servicios-grid { grid-template-columns: 1fr; }
+      .inclusion-layout { grid-template-columns: 1fr; gap: 32px; }
+      .inclusion-imagen { order: -1; }
+      .hero-stats { gap: 24px; }
+      .stat-num { font-size: 1.7rem; }
+      .reg-tabla { font-size: 0.78rem; }
+      .reg-tabla thead th, .reg-tabla tbody td { padding: 10px 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .datos-grid { grid-template-columns: 1fr 1fr; }
+      .retos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ⚠️ AVISO INFORMATIVO -->
+  <div class="aviso-banner" role="alert">
+    <span class="icono">⚠️</span>
+    <strong>Aviso importante:</strong> Este sitio web es de carácter <strong>informativo y educativo</strong>. No es el Banco de Occidente, no está afiliado a él, no intenta suplantarlo ni representarlo de ninguna forma. Para información oficial, visite el sitio oficial de su entidad bancaria.
+  </div>
+
+  <!-- NAV -->
+  <nav aria-label="Navegación principal">
+    <a href="#" class="nav-logo">
+      <div class="bandera" aria-label="Bandera de Colombia">
+        <span class="f1"></span>
+        <span class="f2"></span>
+        <span class="f3"></span>
+      </div>
+      <span class="nav-titulo">Banca en Colombia</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#importancia">Importancia</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#inclusion">Inclusión</a></li>
+      <li><a href="#datos">Datos</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-etiqueta">Colombia · Sistema Financiero</div>
+    <h1>Los bancos:<br/>motor de la <em>economía colombiana</em></h1>
+    <p>El sistema bancario es la columna vertebral del desarrollo económico y social de Colombia, conectando ciudadanos, empresas y territorios en todo el país.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">32+</div>
+        <div class="stat-label">Bancos activos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">87%</div>
+        <div class="stat-label">Adultos bancarizados</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$1.200B</div>
+        <div class="stat-label">Activos del sistema (COP)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1870</div>
+        <div class="stat-label">Primer banco fundado</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- IMPORTANCIA -->
+  <section id="importancia">
+    <div class="container">
+      <div class="seccion-etiqueta">¿Por qué importan?</div>
+      <h2 class="seccion-titulo">Pilares del desarrollo nacional</h2>
+      <p class="seccion-subtitulo">Los bancos no solo guardan dinero: generan oportunidades, impulsan proyectos y sostienen la economía del país.</p>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icono">💰</div>
+          <h3>Intermediación financiera</h3>
+          <p>Captan ahorros de millones de colombianos y los canalizan hacia créditos productivos para hogares, pequeñas empresas y grandes industrias.</p>
+        </div>
+        <div class="card">
+          <div class="card-icono">🏗️</div>
+          <h3>Financiación del desarrollo</h3>
+          <p>Financian infraestructura vial, hospitales, colegios y proyectos de vivienda de interés social a lo largo de todo el territorio nacional.</p>
+        </div>
+        <div class="card">
+          <div class="card-icono">💳</div>
+          <h3>Sistema de pagos</h3>
+          <p>Procesan millones de transacciones diarias entre personas, empresas y el Estado, garantizando la fluidez del comercio y los servicios públicos.</p>
+        </div>
+        <div class="card">
+          <div class="card-icono">🌱</div>
+          <h3>Inclusión financiera</h3>
+          <p>Llevan servicios bancarios a zonas rurales y poblaciones vulnerables, reduciendo la brecha de desigualdad económica en el país.</p>
+        </div>
+        <div class="card">
+          <div class="card-icono">🛡️</div>
+          <h3>Estabilidad económica</h3>
+          <p>Bajo la supervisión de la Superintendencia Financiera, garantizan la seguridad de los depósitos y la solidez del sistema monetario.</p>
+        </div>
+        <div class="card">
+          <div class="card-icono">📈</div>
+          <h3>Generación de empleo</h3>
+          <p>El sector bancario emplea directamente a más de 100.000 colombianos e indirectamente sostiene millones de empleos a través del crédito productivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIA -->
+  <section id="historia">
+    <div class="container">
+      <div class="seccion-etiqueta">Línea del tiempo</div>
+      <h2 class="seccion-titulo">Historia de la banca colombiana</h2>
+      <p class="seccion-subtitulo">Más de 150 años de evolución financiera al servicio del país.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-punto"></div>
+          <div class="tl-year">1870</div>
+          <div class="tl-titulo">Banco de Bogotá — el primero</div>
+          <div class="tl-desc">Fundado el 15 de noviembre de 1870, es el banco más antiguo de Colombia aún en operación. Nació para facilitar el comercio y el crédito en la capital del país.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-punto"></div>
+          <div class="tl-year">1880</div>
+          <div class="tl-titulo">Banco Nacional</div>
+          <div class="tl-desc">El gobierno colombiano creó el Banco Nacional con el objetivo de centralizar las emisiones de moneda y regular la política monetaria a nivel nacional.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-punto"></div>
+          <div class="tl-year">1923</div>
+          <div class="tl-titulo">Fundación del Banco de la República</div>
+          <div class="tl-desc">Con la Misión Kemmerer se modernizó el sistema financiero colombiano y se creó el Banco de la República, banco central emisor, regulador y prestamista de última instancia.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-punto"></div>
+          <div class="tl-year">1960–1980</div>
+          <div class="tl-titulo">Expansión del sistema financiero</div>
+          <div class="tl-desc">Surgieron múltiples entidades especializadas: bancos hipotecarios, corporaciones de ahorro y vivienda (CAV) y compañías de financiamiento comercial.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-punto"></div>
+          <div class="tl-year">1999</div>
+          <div class="tl-titulo">Crisis y reestructuración</div>
+          <div class="tl-desc">La crisis financiera de finales de los 90 llevó a la liquidación de entidades débiles y a la consolidación del sector, fortaleciendo la supervisión prudencial.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-punto"></div>
+          <div class="tl-year">2010–hoy</div>
+          <div class="tl-titulo">Era digital y fintech</div>
+          <div class="tl-desc">Los bancos colombianos lideran la transformación digital en Latinoamérica: banca móvil, billeteras digitales, inteligencia artificial y modelos de servicio sin sucursal física.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="container">
+      <div class="seccion-etiqueta">Portafolio</div>
+      <h2 class="seccion-titulo">Servicios que ofrecen los bancos</h2>
+      <p class="seccion-subtitulo">Desde cuentas de ahorro hasta financiación empresarial, los bancos atienden cada etapa de la vida financiera de los colombianos.</p>
+      <div class="servicios-grid">
+        <div class="servicio-item">
+          <div class="serv-icono">🏦</div>
+          <div class="serv-texto">
+            <h4>Cuentas de ahorro y corriente</h4>
+            <p>Permiten guardar dinero de forma segura, realizar pagos y acceder a transferencias nacionales e internacionales.</p>
+          </div>
+        </div>
+        <div class="servicio-item">
+          <div class="serv-icono">🏠</div>
+          <div class="serv-texto">
+            <h4>Crédito hipotecario</h4>
+            <p>Financiación de vivienda a largo plazo, con tasas competitivas y programas especiales como Mi Casa Ya.</p>
+          </div>
+        </div>
+        <div class="servicio-item">
+          <div class="serv-icono">💳</div>
+          <div class="serv-texto">
+            <h4>Tarjetas de crédito y débito</h4>
+            <p>Acceso a crédito rotativo, beneficios, puntos y protección en compras nacionales e internacionales.</p>
+          </div>
+        </div>
+        <div class="servicio-item">
+          <div class="serv-icono">🚗</div>
+          <div class="serv-texto">
+            <h4>Crédito de consumo y libre inversión</h4>
+            <p>Préstamos para vehículos, educación, viajes, remodelación o cualquier necesidad personal del cliente.</p>
+          </div>
+        </div>
+        <div class="servicio-item">
+          <div class="serv-icono">🏭</div>
+          <div class="serv-texto">
+            <h4>Financiación empresarial</h4>
+            <p>Capital de trabajo, crédito a largo plazo, leasing y factoring para pequeñas, medianas y grandes empresas.</p>
+          </div>
+        </div>
+        <div class="servicio-item">
+          <div class="serv-icono">📱</div>
+          <div class="serv-texto">
+            <h4>Banca digital y pagos móviles</h4>
+            <p>Apps bancarias, pagos QR, transferencias inmediatas con Transfiya y acceso a todos los servicios desde el celular.</p>
+          </div>
+        </div>
+        <div class="servicio-item">
+          <div class="serv-icono">🌍</div>
+          <div class="serv-texto">
+            <h4>Comercio exterior</h4>
+            <p>Cartas de crédito, cambios de divisas, financiación de importaciones y exportaciones para empresas con actividad internacional.</p>
+          </div>
+        </div>
+        <div class="servicio-item">
+          <div class="serv-icono">📊</div>
+          <div class="serv-texto">
+            <h4>Inversiones y fondos</h4>
+            <p>CDT, fondos de inversión colectiva, comisionistas de bolsa y productos estructurados para crecer el patrimonio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCLUSION FINANCIERA -->
+  <section id="inclusion">
+    <div class="container">
+      <div class="inclusion-layout">
+        <div>
+          <div class="seccion-etiqueta">Inclusión financiera</div>
+          <h2 class="seccion-titulo">Llegando a todos los rincones de Colombia</h2>
+          <p style="font-size:0.93rem;color:var(--muted);margin-bottom:32px;line-height:1.7;">
+            Gracias a la expansión de corresponsales bancarios, billeteras digitales y banca móvil, millones de colombianos que antes no tenían acceso al sistema financiero hoy pueden ahorrar, pagar y créditar de forma segura.
+          </p>
+          <div>
+            <div class="indicador">
+              <span class="ind-label">Adultos bancarizados</span>
+              <div class="ind-barra"><div class="ind-fill" style="width:87%"></div></div>
+              <span class="ind-pct">87%</span>
+            </div>
+            <div class="indicador">
+              <span class="ind-label">Mujeres con cuenta</span>
+              <div class="ind-barra"><div class="ind-fill" style="width:84%;background:var(--rojo)"></div></div>
+              <span class="ind-pct" style="color:var(--rojo)">84%</span>
+            </div>
+            <div class="indicador">
+              <span class="ind-label">Zona rural cubierta</span>
+              <div class="ind-barra"><div class="ind-fill" style="width:71%;background:#059669"></div></div>
+              <span class="ind-pct" style="color:#059669">71%</span>
+            </div>
+            <div class="indicador">
+              <span class="ind-label">Uso de banca digital</span>
+              <div class="ind-barra"><div class="ind-fill" style="width:63%;background:#7c3aed"></div></div>
+              <span class="ind-pct" style="color:#7c3aed">63%</span>
+            </div>
+          </div>
+        </div>
+        <div class="inclusion-imagen">
+          <img
+            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=530&fit=crop&auto=format"
+            alt="Persona colombiana accediendo a servicios bancarios desde su celular"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATOS CLAVE -->
+  <section id="datos">
+    <div class="container">
+      <div class="seccion-etiqueta">En números</div>
+      <h2 class="seccion-titulo">El sistema bancario colombiano en cifras</h2>
+      <p class="seccion-subtitulo">Datos del sector bancario colombiano según la Superintendencia Financiera y la Asobancaria.</p>
+      <div class="datos-grid">
+        <div class="dato-card">
+          <div class="dato-num">32+</div>
+          <div class="dato-desc">Establecimientos bancarios vigilados por la Superfinanciera</div>
+        </div>
+        <div class="dato-card">
+          <div class="dato-num">17.000+</div>
+          <div class="dato-desc">Oficinas y puntos de atención en todo el país</div>
+        </div>
+        <div class="dato-card">
+          <div class="dato-num">1.200B</div>
+          <div class="dato-desc">Activos totales del sistema en billones de pesos colombianos</div>
+        </div>
+        <div class="dato-card">
+          <div class="dato-num">100K+</div>
+          <div class="dato-desc">Corresponsales bancarios que extienden el alcance a zonas rurales</div>
+        </div>
+        <div class="dato-card">
+          <div class="dato-num">38M</div>
+          <div class="dato-desc">Adultos con al menos un producto financiero activo en Colombia</div>
+        </div>
+        <div class="dato-card">
+          <div class="dato-num">4,5%</div>
+          <div class="dato-desc">Contribución del sector financiero al PIB nacional colombiano</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RETOS -->
+  <section id="retos">
+    <div class="container">
+      <div class="seccion-etiqueta">Desafíos</div>
+      <h2 class="seccion-titulo">Retos del sector bancario colombiano</h2>
+      <p class="seccion-subtitulo">Con los avances también llegan retos estructurales que el sistema financiero debe superar para consolidar su papel en el desarrollo del país.</p>
+      <div class="retos-grid">
+        <div class="reto-card">
+          <h4>Conectividad en zonas rurales</h4>
+          <p>Muchos municipios aún carecen de infraestructura digital suficiente para acceder a la banca móvil, limitando la inclusión financiera en el campo colombiano.</p>
+        </div>
+        <div class="reto-card">
+          <h4>Educación financiera</h4>
+          <p>Una parte importante de la población bancarizada no comprende plenamente los productos que usa, lo que genera sobreendeudamiento y uso ineficiente del crédito.</p>
+        </div>
+        <div class="reto-card">
+          <h4>Ciberseguridad y fraude digital</h4>
+          <p>El crecimiento de la banca digital trae consigo riesgos de fraude electrónico, phishing y suplantación de identidad que los bancos deben combatir constantemente.</p>
+        </div>
+        <div class="reto-card">
+          <h4>Competencia de las fintech</h4>
+          <p>Las empresas de tecnología financiera ofrecen servicios más ágiles y económicos, obligando a los bancos tradicionales a acelerar su transformación digital.</p>
+        </div>
+        <div class="reto-card">
+          <h4>Altas tasas de interés</h4>
+          <p>Los altos costos del crédito de consumo dificultan el acceso a financiación para los sectores más vulnerables de la población colombiana.</p>
+        </div>
+        <div class="reto-card">
+          <h4>Economía informal</h4>
+          <p>El alto porcentaje de informalidad laboral en Colombia limita el acceso al crédito de millones de trabajadores sin historial crediticio formal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGULACION -->
+  <section id="regulacion" style="background:var(--blanco)">
+    <div class="container">
+      <div class="seccion-etiqueta">Marco regulatorio</div>
+      <h2 class="seccion-titulo">Entidades que regulan el sistema</h2>
+      <p class="seccion-subtitulo">Colombia cuenta con un sólido marco institucional que garantiza la solidez y transparencia del sistema bancario.</p>
+      <div style="overflow-x:auto;">
+        <table class="reg-tabla">
+          <thead>
+            <tr>
+              <th>Entidad</th>
+              <th>Rol principal</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Banco de la República</strong></td>
+              <td>Banco central, emisor de moneda, política monetaria y cambiaria</td>
+              <td><span class="badge badge-azul">Banco central</span></td>
+            </tr>
+            <tr>
+              <td><strong>Superintendencia Financiera (SFC)</strong></td>
+              <td>Inspección, vigilancia y control de entidades financieras</td>
+              <td><span class="badge badge-verde">Supervisor</span></td>
+            </tr>
+            <tr>
+              <td><strong>Ministerio de Hacienda</strong></td>
+              <td>Política económica y financiera del Estado colombiano</td>
+              <td><span class="badge badge-amarillo">Gobierno</span></td>
+            </tr>
+            <tr>
+              <td><strong>FOGAFIN</strong></td>
+              <td>Fondo de garantía de depósitos hasta $50 millones por cliente</td>
+              <td><span class="badge badge-verde">Protección</span></td>
+            </tr>
+            <tr>
+              <td><strong>UIAF</strong></td>
+              <td>Prevención y control del lavado de activos y financiación del terrorismo</td>
+              <td><span class="badge badge-azul">Antilavado</span></td>
+            </tr>
+            <tr>
+              <td><strong>Asobancaria</strong></td>
+              <td>Gremio que representa y promueve el sector bancario colombiano</td>
+              <td><span class="badge badge-amarillo">Gremial</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="seccion-etiqueta">Preguntas frecuentes</div>
+      <h2 class="seccion-titulo">Lo que los colombianos preguntan</h2>
+      <p class="seccion-subtitulo" style="margin-bottom:36px;">Respuestas claras sobre el funcionamiento del sistema bancario en Colombia.</p>
+      <div>
+        <div class="faq-item">
+          <button class="faq-pregunta" onclick="toggleFaq(this)">
+            ¿Mis ahorros están seguros en un banco colombiano?
+            <span class="faq-flecha">+</span>
+          </button>
+          <div class="faq-respuesta">
+            <div class="faq-respuesta-inner">Sí. Los depósitos en bancos colombianos están protegidos por FOGAFIN hasta 50 millones de pesos por persona por entidad. Además, los bancos están sujetos a estrictas normas de capital y liquidez supervisadas por la Superintendencia Financiera de Colombia.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-pregunta" onclick="toggleFaq(this)">
+            ¿Qué es el Banco de la República y qué hace?
+            <span class="faq-flecha">+</span>
+          </button>
+          <div class="faq-respuesta">
+            <div class="faq-respuesta-inner">El Banco de la República es el banco central de Colombia, creado en 1923. Es el único autorizado para emitir el peso colombiano, define la política monetaria para controlar la inflación, administra las reservas internacionales del país y actúa como prestamista de última instancia para el sistema financiero.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-pregunta" onclick="toggleFaq(this)">
+            ¿Cómo puedo abrir una cuenta bancaria sin salir de casa?
+            <span class="faq-flecha">+</span>
+          </button>
+          <div class="faq-respuesta">
+            <div class="faq-respuesta-inner">Muchos bancos en Colombia permiten la apertura de cuentas 100% digital a través de sus aplicaciones móviles. Solo necesitas tu cédula, un selfie y en minutos puedes tener una cuenta activa. También existen billeteras digitales como Nequi, Daviplata y Movii que permiten acceso inmediato sin requisitos complejos.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-pregunta" onclick="toggleFaq(this)">
+            ¿Qué debo hacer si soy víctima de fraude bancario?
+            <span class="faq-flecha">+</span>
+          </button>
+          <div class="faq-respuesta">
+            <div class="faq-respuesta-inner">Comunícate inmediatamente con tu banco para bloquear tu cuenta y tarjetas. Luego, presenta una queja formal ante la entidad y si no obtienes respuesta en 15 días hábiles, puedes acudir a la Superintendencia Financiera a través de su portal web o línea gratuita. También puedes denunciar ante la Fiscalía General de la Nación.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-pregunta" onclick="toggleFaq(this)">
+            ¿Cuántos bancos operan actualmente en Colombia?
+            <span class="faq-flecha">+</span>
+          </button>
+          <div class="faq-respuesta">
+            <div class="faq-respuesta-inner">A 2024, en Colombia operan más de 32 establecimientos bancarios vigilados por la Superintendencia Financiera. Entre los más grandes por activos se encuentran Bancolombia, Banco de Bogotá, Davivienda, BBVA Colombia y Banco de Occidente, entre otros.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="bandera" style="width:40px;height:28px;" aria-label="Bandera de Colombia">
+      <span class="f1"></span>
+      <span class="f2"></span>
+      <span class="f3"></span>
+    </div>
+    <p>
+      <strong style="color:#e2e8f0">La Importancia de los Bancos en Colombia</strong><br/>
+      Contenido educativo e informativo sobre el sistema bancario colombiano.<br/>
+      Fuentes: Asobancaria, Superintendencia Financiera, Banco de la República, Banca de las Oportunidades.
+    </p>
+    <div class="disclaimer">
+      ⚠️ <strong>Aviso legal:</strong> Este sitio web es de carácter estrictamente informativo y educativo. No es el Banco de Occidente ni ninguna otra entidad bancaria. No está afiliado, respaldado ni patrocinado por ninguna entidad financiera. No intenta suplantar, imitar ni representar a ningún banco colombiano. Para información oficial, visite directamente el sitio web de su entidad bancaria.
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const estaAbierto = item.classList.contains('abierto');
+      document.querySelectorAll('.faq-item.abierto').forEach(el => el.classList.remove('abierto'));
+      if (!estaAbierto) item.classList.add('abierto');
+    }
+
+    // Animación de contadores en hero al cargar
+    function animarContadores() {
+      const numeros = document.querySelectorAll('.stat-num');
+      numeros.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      });
+      setTimeout(() => {
+        numeros.forEach((el, i) => {
+          setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }, i * 120);
+        });
+      }, 300);
+    }
+
+    // Animación suave al hacer scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card, .dato-card, .reto-card, .servicio-item, .tl-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+
+    animarContadores();
+  </script>
+</body>
+</html>
